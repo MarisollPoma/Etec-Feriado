@@ -8,6 +8,4 @@ public interface MeuFeriadoDAO extends JpaRepository<MeuFeriado, Long>{
 
 	
 	
-	
-	
 }

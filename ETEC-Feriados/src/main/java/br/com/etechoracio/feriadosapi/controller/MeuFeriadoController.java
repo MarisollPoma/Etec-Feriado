@@ -1,5 +1,6 @@
 package br.com.etechoracio.feriadosapi.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import antlr.collections.List;
+
 import br.com.etechoracio.feriadosapi.dao.MeuFeriadoDAO;
 import br.com.etechoracio.feriadosapi.model.MeuFeriado;
 
@@ -27,10 +28,11 @@ public class MeuFeriadoController {
 	
 	@GetMapping /* GET -> "pegar" recurso */
 	public List<MeuFeriado> listar() {
-
+		
 		return dao.findAll();
-
 	}
+
+	
 
 	@GetMapping("/{id}") /* Todos os void seram getMapping */
 	public ResponseEntity<MeuFeriado> buscar(@PathVariable Long id) {
@@ -57,9 +59,14 @@ public class MeuFeriadoController {
 	
 	
 	@DeleteMapping       /*    */  
-	public void Delete(@RequestBody MeuFeriado m) {
+	public void delete(@RequestBody MeuFeriado m) {
 		dao.save(m);
 	}
 	
-
+	
+	@GetMapping       /*    */  
+	public void listar(@RequestBody MeuFeriado m) {
+		dao.save(m);
+	}
+	
 }
